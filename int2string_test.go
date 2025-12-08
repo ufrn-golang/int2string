@@ -5,25 +5,19 @@ import "testing"
 const number = 100
 
 func BenchmarkSprintf(b *testing.B) {
-	b.ResetTimer()
-	b.Logf("b.N is %d\n", b.N)
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		ConvertSprintf(number)
 	}
 }
 
 func BenchmarkFormatInt(b *testing.B) {
-	b.ResetTimer()
-	// b.Logf("b.N is %d\n", b.N)
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		ConvertFormatInt(number)
 	}
 }
 
 func BenchmarkItoa(b *testing.B) {
-	b.ResetTimer()
-	// b.Logf("b.N is %d\n", b.N)
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		ConvertItoa(number)
 	}
 }
